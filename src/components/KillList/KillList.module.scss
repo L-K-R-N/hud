@@ -1,0 +1,30 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/vars.scss';
+
+.killList {
+   display: flex;
+   flex-direction: column;
+   align-items: end;
+   gap: 6px;
+
+   &Item {
+      border-radius: 5px;
+      background: rgba(31, 33, 36, 0.5);
+      padding: 6px 16px;
+      display: flex;
+      gap: 10px;
+      align-items: center;
+
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 12.19px;
+
+      .killer {
+         color: rgba(215, 255, 100, 1);
+      }
+
+      .victim {
+         color: rgba(255, 100, 100, 1);
+      }
+   }
+}

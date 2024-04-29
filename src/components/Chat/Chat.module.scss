@@ -2,7 +2,6 @@
 @import '../../styles/vars.scss';
 
 .chat {
-   padding: 30px;
    width: 440px;
    display: flex;
    flex-direction: column;
@@ -10,7 +9,64 @@
    gap: 6px;
 }
 
+.messages {
+   display: flex;
+   flex-direction: column;
+   align-items: stretch;
+   gap: 6px;
+   padding-left: 20px;
+   margin-bottom: 13px;
+   max-height: 155px;
+   min-height: 155px;
+   overflow-y: scroll;
+   direction: rtl;
+
+   &::-webkit-scrollbar {
+      width: 2px;
+      border-radius: 999px;
+      background: rgba(153, 153, 153, 0.25);
+
+      &-thumb {
+         background: rgba(255, 255, 255, 0.71);
+      }
+   }
+}
+
 .message {
+   display: flex;
+   align-items: start;
+   gap: 6px;
+   direction: ltr;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 17.07px;
+   text-align: left;
+   color: rgba(255, 255, 255, 1);
+
+   &Name {
+      font-weight: 400;
+      opacity: 0.5;
+      text-wrap: nowrap;
+   }
+
+   &Text {
+      max-width: 100px;
+      text-wrap: wrap;
+      display: inline;
+   }
+
+   &Type {
+      border-radius: 3px;
+      background: rgba(207, 70, 255, 1);
+      color: white;
+      font-size: 10px;
+      font-weight: 500;
+      line-height: 12.19px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2px 7px;
+   }
    &Field {
       width: 100%;
       position: relative;
@@ -18,40 +74,40 @@
       align-items: center;
       justify-content: space-between;
       gap: 6px;
-   }
 
-   &Input {
-      width: 400px;
-      border-radius: 5px;
-      border: none;
-      background: rgba(31, 33, 36, 0.8);
-      padding: 10px;
-      padding-left: 65px;
+      &Input {
+         width: 400px;
+         border-radius: 5px;
+         border: none;
+         background: rgba(31, 33, 36, 0.8);
+         padding: 10px;
+         padding-left: 65px;
 
-      font-size: 10px;
-      font-weight: 400;
-      line-height: 12.19px;
-      color: rgba(255, 255, 255, 0.75);
-      box-shadow: 0px 0px 12.3px 0px rgba(0, 0, 0, 0.25);
+         font-size: 10px;
+         font-weight: 400;
+         line-height: 12.19px;
+         color: rgba(255, 255, 255, 0.75);
+         box-shadow: 0px 0px 12.3px 0px rgba(0, 0, 0, 0.25);
 
-      &::placeholder {
-         color: rgba(255, 255, 255, 0.25);
+         &::placeholder {
+            color: rgba(255, 255, 255, 0.25);
+         }
       }
-   }
 
-   &Type {
-      position: absolute;
-      top: 50%;
-      left: 10px;
-      transform: translateY(-50%);
-      border-radius: 3px;
-      background: rgba(166, 54, 205, 0.5);
-      color: rgba(212, 105, 255, 1);
-      padding: 3px 10px;
+      &Type {
+         position: absolute;
+         top: 50%;
+         left: 10px;
+         transform: translateY(-50%);
+         border-radius: 3px;
+         background: rgba(166, 54, 205, 0.5);
+         color: rgba(212, 105, 255, 1);
+         padding: 3px 10px;
 
-      font-size: 12px;
-      font-weight: 500;
-      line-height: 14.63px;
+         font-size: 12px;
+         font-weight: 500;
+         line-height: 14.63px;
+      }
    }
 
    &Types {
@@ -87,6 +143,10 @@
             opacity: 0.7;
          }
       }
+   }
+
+   &.active {
+      color: rgba(207, 70, 255, 1);
    }
 }
 

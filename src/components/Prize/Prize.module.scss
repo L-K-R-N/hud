@@ -1,0 +1,58 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/vars.scss';
+
+.prize {
+   display: flex;
+   flex-direction: column;
+   align-items: start;
+   gap: 6px;
+   background: rgba(194, 62, 33, 0.53);
+   position: relative;
+   // background-blend-mode: screen;
+   // background: radial-gradient(
+   //    52.02% 93.55% at 70.7% 50%,
+   //    rgba(255, 83, 14, 0.71) 0%,
+   //    rgba(255, 104, 44, 0) 100%
+   // );
+   /* warning: gradient uses a rotation that is not supported by CSS and may not behave as expected */
+   border: 2px solid rgba(255, 83, 14, 1);
+   padding: 14px 16px;
+   backdrop-filter: blur(2px);
+   border-radius: 5px;
+
+   width: 282px;
+   height: 70px;
+
+   &Title {
+      font-size: 10px;
+      font-weight: 600;
+      line-height: 12.19px;
+      color: white;
+      max-width: 110px;
+      // box-shadow: 0px 0px 11.7px 0px rgba(0, 0, 0, 0.36);
+
+      & > span {
+         color: rgba(255, 111, 46, 1);
+      }
+   }
+
+   &Time {
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 12.19px;
+      letter-spacing: 0.1em;
+      color: rgba(255, 255, 255, 0.5);
+   }
+
+   &Img {
+      width: 155px;
+      height: 155px;
+      position: absolute;
+      top: 50%;
+      right: 0;
+      max-width: 155px;
+      max-height: 155px;
+      object-fit: none;
+      transform: translateY(-50%);
+   }
+}
