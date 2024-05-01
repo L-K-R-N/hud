@@ -8,3 +8,16 @@
    background-size: 100% 100%;
    padding: 50px;
 }
+
+.control {
+   position: fixed;
+   left: 50%;
+   top: 22px;
+   transform: translateX(-50%);
+}
+
+.stats {
+   position: fixed;
+   right: 50px;
+   top: 50px;
+}

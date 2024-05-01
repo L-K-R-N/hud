@@ -1,0 +1,79 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/vars.scss';
+
+.control {
+   display: flex;
+   align-items: start;
+   gap: 67px;
+   height: 147px;
+   .time {
+      border-radius: 50%;
+      border: 2px solid rgba(255, 89, 52, 1);
+
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19.5px;
+
+      color: white;
+
+      align-self: flex-end;
+   }
+}
+
+.team {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   gap: 13px;
+
+   &Name {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 24.38px;
+      text-transform: uppercase;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      & > span {
+         text-transform: none;
+
+         &.attack {
+            color: rgba(255, 100, 100, 1);
+         }
+
+         &.defence {
+            color: rgba(215, 255, 100, 1);
+         }
+      }
+   }
+
+   &KillCounter {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      position: relative;
+      font-size: 32px;
+      font-weight: 500;
+      line-height: 42px;
+      color: white;
+
+      .bgName {
+         position: absolute;
+         top: 50%;
+         left: 50%;
+         transform: translate(-50%, -50%);
+         text-wrap: nowrap;
+
+         -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.271);
+         -webkit-text-fill-color: transparent;
+      }
+   }
+}

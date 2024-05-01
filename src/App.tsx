@@ -7,6 +7,8 @@ import { KillList } from './components/KillList/KillList';
 import { Quest } from './components/Quest/Quest';
 import { title } from 'process';
 import { Prize } from './components/Prize/Prize';
+import { Control } from './components/Control/Control';
+import { Stats } from './components/Stats/Stats';
 
 const App = () => {
    return (
@@ -48,6 +50,39 @@ const App = () => {
             }}
          />
          <Prize />
+         <div className={cl.control}>
+            <Control
+               attackTeam={{
+                  name: 'The ballas gang',
+                  kills: 2,
+               }}
+               defenceTeam={{
+                  name: 'The families',
+                  kills: 2,
+               }}
+               time="05:00"
+            />
+         </div>
+
+         <div className={cl.stats}>
+            <Stats
+               serverStats={{
+                  time: '00:00',
+                  date: '27.11.23',
+                  mode: 'admin',
+                  multiplier: 2,
+                  players: 999,
+               }}
+               personalStats={{
+                  balance: 500000000,
+                  gun: {
+                     name: 'Carabine',
+                     bullets: 30,
+                  },
+                  lvl: 2,
+               }}
+            />
+         </div>
       </div>
    );
 };

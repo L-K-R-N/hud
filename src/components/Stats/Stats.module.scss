@@ -1,0 +1,160 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/vars.scss';
+
+.stats {
+   display: flex;
+   flex-direction: column;
+   align-items: end;
+   gap: 27px;
+
+   &List {
+      opacity: 0.7;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      justify-content: space-between;
+      gap: 5px;
+      font-size: 12px;
+      font-weight: 400;
+      line-height: 14.63px;
+
+      color: rgba(255, 255, 255, 1);
+
+      &Item {
+         display: flex;
+         align-items: center;
+         gap: 6px;
+         & > span {
+            color: rgba(255, 255, 255, 0.5);
+         }
+      }
+   }
+}
+
+.server {
+   display: flex;
+   align-items: center;
+
+   gap: 13px;
+   justify-content: end;
+
+   .mode {
+      border-radius: 4px;
+      background: rgba(223, 65, 44, 1);
+      padding: 6px 13px;
+      font-size: 8px;
+      font-weight: 500;
+      line-height: 9.75px;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: -3px 2px 15px 0px rgba(0, 0, 0, 0.25);
+   }
+
+   .multiplier {
+      border-radius: 4px;
+      background: rgba(255, 83, 14, 1);
+      padding: 6px;
+      font-size: 8px;
+      font-weight: 500;
+      line-height: 9.75px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      box-shadow: -3px 2px 15px 0px rgba(0, 0, 0, 0.25);
+   }
+
+   .title {
+      text-align: end;
+      color: white;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 17.07px;
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      & > span {
+         opacity: 0.5;
+         font-weight: 400;
+      }
+   }
+}
+
+.personal {
+   display: flex;
+   align-items: start;
+   justify-content: end;
+   gap: 19px;
+
+   .gun {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+
+      position: relative;
+      &Name,
+      &Bullets {
+         font-size: 10px;
+         font-weight: 500;
+         line-height: 12.19px;
+         color: white;
+      }
+
+      &Bullets {
+         & > span {
+            opacity: 0.5;
+         }
+      }
+
+      & > img {
+         position: absolute;
+         top: 50%;
+         right: 0;
+         transform: translateY(-50%);
+         padding-left: 40px;
+      }
+   }
+
+   .lvl {
+      display: flex;
+      flex-direction: column;
+      justify-content: end;
+      align-items: end;
+      &Number {
+         font-size: 10px;
+         font-weight: 400;
+         line-height: 12.19px;
+         color: white;
+      }
+
+      &Stars {
+         display: flex;
+         align-items: center;
+         gap: 3px;
+      }
+   }
+
+   .balance {
+      display: flex;
+      flex-direction: column;
+      align-items: end;
+      & > p,
+      span {
+         display: flex;
+         gap: 4px;
+         align-items: center;
+         font-size: 16px;
+         font-weight: 500;
+         line-height: 19.5px;
+         color: white;
+      }
+
+      & > span {
+         font-size: 12px;
+         opacity: 0.5;
+      }
+   }
+}
