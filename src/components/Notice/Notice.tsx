@@ -4,7 +4,7 @@ import successIcon from './assets/success.svg';
 import infoIcon from './assets/info.svg';
 import { FC, useEffect, useRef, useState } from 'react';
 
-interface Props {
+export interface INotice {
    text: string;
    // time: string;
    type: TNoticeType;
@@ -13,7 +13,7 @@ interface Props {
 
 type TNoticeType = 'error' | 'success' | 'info';
 
-export const Notice: FC<Props> = ({ text, type, timeMs }) => {
+export const Notice: FC<INotice> = ({ text, type, timeMs }) => {
    const noticeRef = useRef(null);
 
    return (

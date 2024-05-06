@@ -23,12 +23,6 @@ export const KillList: FC<Props> = ({}) => {
          victimName: 'Daniel Fodyanov',
          gunIcon: gunIcon,
       },
-      {
-         id: 3,
-         killerName: 'Daniel Fodyanov',
-         victimName: 'Daniel Fodyanov',
-         gunIcon: gunIcon,
-      },
    ]);
    return (
       <div className={cl.killList}>

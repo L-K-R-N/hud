@@ -1,0 +1,287 @@
+@import '../../styles/mixins.scss';
+@import '../../styles/vars.scss';
+:root {
+   --tlt-br-cnt: 24;
+   --i: 0;
+
+   --speed: 61;
+}
+
+.speedometer {
+   position: relative;
+   width: 220px;
+   height: 220px;
+}
+
+.nitro {
+   &Container {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transform: rotate(-70deg);
+      position: relative;
+
+      & > div {
+         i {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform: rotate(
+               calc(45deg + calc(calc(360deg / var(--tlt-br-cnt)) * var(--i)))
+            );
+         }
+
+         i::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 18px;
+            height: 5px;
+            transform: rotate(-45deg);
+            transform-origin: top;
+            // opacity: 0;
+
+            animation: barCreationAnimation 100ms ease forwards;
+            animation-delay: calc(var(--i) * 15ms);
+         }
+      }
+   }
+
+   &Current {
+      .selected1::after {
+         background: hsl(0, 0%, 100%);
+         z-index: 1000;
+      }
+   }
+
+   &Max {
+      .selected1::after {
+         background: hsla(0, 0%, 62%, 0.478);
+      }
+   }
+}
+
+.speed {
+   &Container {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      top: -198px;
+      left: 20px;
+      display: flex;
+      justify-content: center;
+      transform: rotate(-66deg);
+      align-items: center;
+      position: relative;
+
+      & > div {
+         i::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 3px;
+            height: 7px;
+            transform: rotate(-45deg);
+            transform-origin: top;
+            // opacity: 0;
+
+            animation: barCreationAnimation 100ms ease forwards;
+            animation-delay: calc(var(--i) * 15ms);
+            height: 15px;
+         }
+         i {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transform: rotate(
+               calc(45deg + calc(calc(360deg / var(--speed)) * var(--i)))
+            );
+
+            &::after {
+               content: '';
+               position: absolute;
+               top: 0;
+               left: 0;
+               width: 4px;
+               height: 10px;
+               transform: rotate(-45deg);
+               transform-origin: top;
+               // opacity: 0;
+
+               animation: barCreationAnimation 100ms ease forwards;
+               animation-delay: calc(var(--i) * 15ms);
+            }
+            &:nth-child(2n + 1) {
+               &::after {
+                  height: 15px;
+               }
+            }
+            &:nth-child(2n + 2) {
+               &::after {
+                  height: 10px;
+               }
+            }
+         }
+      }
+   }
+
+   &Current {
+      .selected1::after {
+         background: #ff612f;
+      }
+   }
+
+   &Max {
+      .selected1::after {
+         background: hsla(0, 0%, 62%, 0.478);
+      }
+   }
+}
+
+.fuel {
+   position: absolute;
+   top: -4px;
+   left: -6px;
+   width: 230px;
+   height: 230px;
+
+   &Svg {
+      width: 230px;
+      height: 230px;
+      transform: rotate(90deg);
+
+      circle {
+         stroke-width: 4px;
+         fill: none;
+      }
+
+      &Back {
+         stroke-width: 14px !important;
+         stroke: rgba(0, 0, 0, 0.533);
+         stroke-dasharray: calc(78 * 2 * 3.14);
+         stroke-dashoffset: 157;
+      }
+
+      &Front {
+         stroke: #ff4b2f;
+         position: relative;
+         z-index: 1;
+
+         stroke-dasharray: calc(83 * 2 * 3.14);
+      }
+   }
+
+   &Text {
+      color: #fff;
+      font-size: 40px;
+   }
+
+   &Counter {
+      position: absolute;
+      bottom: 20px;
+      right: 65px;
+
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 14.63px;
+      color: white;
+      display: flex;
+      align-items: center;
+      gap: 3px;
+   }
+
+   &Icon {
+      width: 11px;
+      padding-bottom: 2px;
+   }
+}
+
+.center {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   background: rgba(29, 29, 29, 0.432);
+   width: 142px;
+   height: 142px;
+   border: 1px solid rgba(120, 120, 120, 0.493);
+   backdrop-filter: blur(17px);
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   padding-top: 5px;
+   font-size: 36px;
+   font-weight: 500;
+   gap: 2px;
+   line-height: 43.88px;
+   color: white;
+
+   .small {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 19.5px;
+      color: rgba(255, 255, 255, 0.25);
+   }
+
+   .dark {
+      opacity: 0.4;
+   }
+}
+
+.control {
+   position: absolute;
+   bottom: -50px;
+   left: -90px;
+   width: 230px;
+   height: 230px;
+
+   & > div {
+      border-radius: 999px;
+      width: 35px;
+      height: 35px;
+      background: #3d3d3da7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      backdrop-filter: blur(1px);
+      padding: 10px;
+
+      & > img {
+         width: 100%;
+         object-fit: contain;
+      }
+
+      &:nth-child(1) {
+         position: absolute;
+         top: 38px;
+         left: 45px;
+      }
+      &:nth-child(2) {
+         position: absolute;
+         top: 100px;
+         left: 56px;
+      }
+      &:nth-child(3) {
+         position: absolute;
+         top: 158px;
+         left: 94px;
+      }
+      &:nth-child(4) {
+         position: absolute;
+         top: 194px;
+         left: 160px;
+      }
+   }
+}

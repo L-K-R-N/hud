@@ -1,5 +1,5 @@
 import { Chat } from './components/Chat/Chat';
-import { Notice } from './components/Notice/Notice';
+import { INotice, Notice } from './components/Notice/Notice';
 import './styles/main.scss';
 import cl from './App.module.scss';
 import { Info } from './components/Info/Info';
@@ -9,47 +9,64 @@ import { title } from 'process';
 import { Prize } from './components/Prize/Prize';
 import { Control } from './components/Control/Control';
 import { Stats } from './components/Stats/Stats';
+import { Speedometer } from './components/Speedometer/Speedometer';
+import { useState } from 'react';
 
 const App = () => {
+   const [notifications, setNotifications] = useState<INotice[]>([
+      {
+         text: 'Lorem ipsum dolor sit amet consectetur. Sed urna id arcu vestibulum nunc.',
+         type: 'info',
+         timeMs: 5000,
+      },
+      {
+         text: 'Lorem ipsum dolor sit amet consectetur. Sed urna id arcu vestibulum nunc.',
+         type: 'success',
+         timeMs: 5000,
+      },
+      {
+         text: 'Lorem ipsum dolor sit amet consectetur. Sed urna id arcu vestibulum nunc.',
+         type: 'error',
+         timeMs: 5000,
+      },
+   ]);
    return (
       <div className={cl.hud}>
-         <Chat />
+         <div className={cl.chat}>
+            <Chat />
+         </div>
 
-         <Notice
-            text={
-               'Lorem ipsum dolor sit amet consectetur. Sed urna id arcu vestibulum nunc.'
-            }
-            type="info"
-            timeMs={5000}
-         />
-         <Notice
-            text={
-               'Lorem ipsum dolor sit amet consectetur. Sed urna id arcu vestibulum nunc.'
-            }
-            type="success"
-            timeMs={5000}
-         />
-         <Notice
-            text={
-               'Lorem ipsum dolor sit amet consectetur. Sed urna id arcu vestibulum nunc.'
-            }
-            type="error"
-            timeMs={5000}
-         />
+         <div className={cl.noticeList}>
+            {notifications.map((notice) => (
+               <Notice
+                  text={notice.text}
+                  timeMs={notice.timeMs}
+                  type={notice.type}
+               />
+            ))}
+         </div>
+         <div className={cl.map}></div>
+         <div className={cl.info}>
+            <Info />
+         </div>
+         <div className={cl.killList}>
+            <KillList />
+         </div>
 
-         <Info />
-         <KillList />
-
-         <Quest
-            quest={{
-               name: 'Крутой квест',
-               text: 'Lorem ipsum dolor sit amet consectetur. Et quisque et nullam nec.',
-               exp: 20,
-               price: 2000,
-               time: 0,
-            }}
-         />
-         <Prize />
+         <div className={cl.quest}>
+            <Quest
+               quest={{
+                  name: 'Крутой квест',
+                  text: 'Lorem ipsum dolor sit amet consectetur. Et quisque et nullam nec.',
+                  exp: 20,
+                  price: 2000,
+                  time: 0,
+               }}
+            />
+         </div>
+         <div className={cl.prize}>
+            <Prize />
+         </div>
          <div className={cl.control}>
             <Control
                attackTeam={{
@@ -81,6 +98,13 @@ const App = () => {
                   },
                   lvl: 2,
                }}
+            />
+         </div>
+         <div className={cl.speedometer}>
+            <Speedometer
+               speed={{ max: 200, current: 90 }}
+               nitro={{ max: 100, current: 50 }}
+               fuel={{ max: 300, current: 150 }}
             />
          </div>
       </div>

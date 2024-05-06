@@ -16,8 +16,59 @@
    transform: translateX(-50%);
 }
 
+.noticeList {
+   position: fixed;
+
+   left: 50px;
+   top: 47%;
+
+   display: flex;
+   flex-direction: column;
+   gap: 14px;
+}
+
+.info {
+   position: fixed;
+   bottom: 50px;
+   left: 20%;
+}
 .stats {
    position: fixed;
    right: 50px;
    top: 50px;
+}
+
+.speedometer {
+   position: fixed;
+   bottom: 100px;
+   right: 100px;
+}
+
+.quest {
+   position: fixed;
+   top: 46%;
+   right: 50px;
+}
+.killList {
+   position: fixed;
+   top: 20%;
+   right: 50px;
+}
+
+.prize {
+   position: fixed;
+   top: 35%;
+   right: 50px;
+}
+
+.map {
+   width: 380px;
+   height: 200px;
+   border-radius: 10px;
+   background-color: rgba(0, 0, 0, 0.421);
+   border: 1px solid rgba(52, 52, 52, 0.405);
+   position: fixed;
+
+   left: 50px;
+   bottom: 50px;
 }
